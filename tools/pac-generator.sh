@@ -18,7 +18,7 @@ cat << EOF
 
      };
 
-    var proxy = 'PROXY light.ustclug.org:10086; DIRECT';
+    var proxy = 'PROXY light.ustclug.org:29979; DIRECT';
 
     function testDomain(target, domains) {
         var idxA = target.lastIndexOf('.');
