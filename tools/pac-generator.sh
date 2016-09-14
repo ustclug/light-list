@@ -21,22 +21,21 @@ cat << EOF
     var proxy = 'PROXY light.ustclug.org:29979; DIRECT';
 
     function testDomain(target, domains) {
-        var idxA = target.lastIndexOf('.');
-        var idxB = target.lastIndexOf('.', idxA - 1);
+        var idx = target.lastIndexOf('.');
         var hasOwnProperty = Object.hasOwnProperty;
         while (true) {
-            if (idxB === -1) {
+            if (idx === -1) {
                 if (hasOwnProperty.call(domains, target)) {
                     return true;
                 } else {
                     return false;
                 }
             }
-            suffix = target.substring(idxB + 1);
+            suffix = target.substring(idx + 1);
             if (hasOwnProperty.call(domains, suffix)) {
                 return true;
             }
-            idxB = target.lastIndexOf('.', idxB - 1);
+            idx = target.lastIndexOf('.', idx - 1);
         }
     }
 
