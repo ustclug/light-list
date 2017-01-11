@@ -1,0 +1,19 @@
+sudo: false
+language: c
+
+addons:
+  apt:
+    packages:
+      - ftp
+
+script:
+  - tools/pac-generator-http.sh accelerate.list > http.pac
+  - tools/pac-generator-https.sh accelerate.list > https.pac
+
+deploy:
+  provider: script
+  script: tools/upload-pac.sh
+  on:
+    branch: master
+    condition: '-n "$FTP_PASS"'
+  skip_cleanup: true
