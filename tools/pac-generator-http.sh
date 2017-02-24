@@ -42,6 +42,7 @@ cat << EOF
     // fix error message in FoxyProxy when switching tabs. http://verihy.me/posts/foxyproxy-pac/
     if (typeof host === 'undefined'
      || isPlainHostName(host)
+     || shExpMatch(url, "*://" + host + ":*")
      || host === '127.0.0.1'
      || host === 'localhost') {
         return 'DIRECT';
