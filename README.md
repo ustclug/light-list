@@ -1,15 +1,6 @@
 # Accelerate List of LUG Light Service
 
-The list contains some common websites which have a poor connnection from China.
-
-##Add a domain
-
-If you want to update the [PAC files](https://ftp.ustclug.org/light), please open an [issue](https://github.com/ustclug/light-list/issues/new):
-
-```
-Title: domain name
-Comment: website introduction (Optinal)
-```
+The list is generated from [dnsmasq-china-list](https://github.com/felixonmars/dnsmasq-china-list). If you'd like to update the list, please go to the upstream project. 
 
 ## Apply for Light
 

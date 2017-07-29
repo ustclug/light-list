@@ -44,15 +44,12 @@ cat << EOF
      || isPlainHostName(host)
      || shExpMatch(url, "*://" + host + ":*")
      || host === '127.0.0.1'
-     || host === 'localhost') {
+     || host === 'localhost'
+     || testDomain(host, proxyList)) {
         return 'DIRECT';
     }
 
-    if (testDomain(host, proxyList)) {
-        return proxy;
-    }
-
-    return 'DIRECT';
+    return proxy;
 
 }
 EOF
