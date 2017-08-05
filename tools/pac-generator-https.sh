@@ -45,6 +45,7 @@ cat << EOF
      || shExpMatch(url, "*://" + host + ":*")
      || host === '127.0.0.1'
      || host === 'localhost'
+     || host === dnsResolve(host)
      || testDomain(host, proxyList)) {
         return 'DIRECT';
     }
