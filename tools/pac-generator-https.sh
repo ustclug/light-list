@@ -18,7 +18,7 @@ cat << EOF
 
      };
 
-    var proxy = 'HTTPS light.ustclug.org:29980; DIRECT';
+    var proxy = 'HTTPS light.ustclug.org:29980';
 
     function testDomain(target, domains) {
         var idx = target.lastIndexOf('.');
