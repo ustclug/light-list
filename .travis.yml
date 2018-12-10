@@ -4,7 +4,7 @@ language: shell
 addons:
   apt:
     packages:
-      - ftp
+      - expect
 
 script:
   - tools/get-raw-list.sh

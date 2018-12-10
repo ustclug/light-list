@@ -1,13 +1,18 @@
-#!/bin/bash
+#!/usr/bin/env expect
 
-ftp -p -n $FTP_HOST << EOF
-quote USER $FTP_USER
-quote PASS $FTP_PASS
-cd light
-put http-temp.pac
-rename http-temp.pac http.pac
-put https-temp.pac
-rename https-temp.pac https.pac
-quit
-EOF
-
+spawn sftp -o StrictHostKeyChecking=no $env(FTP_USER)@$env(FTP_HOST)
+expect "Password: "
+send "$env(FTP_PASS)\r"
+expect "sftp>"
+send "cd light\r"
+expect "sftp>"
+send "put http-temp.pac\r"
+expect "sftp>"
+send "rename http-temp.pac http.pac\r"
+expect "sftp>"
+send "put https-temp.pac\r"
+expect "sftp>"
+send "rename https-temp.pac https.pac\r"
+expect "sftp>"
+send "bye\r"
+expect "#"
