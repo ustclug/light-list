@@ -5,7 +5,7 @@ on:
     branches: [ 'master' ]
   pull_request:
     branches: [ 'master' ]
-  workflow_dispatch:
+  workflow_dispatch: {}
   schedule:
     - cron: '30 20 * * *'
 
@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install expect
-        run: sudo apt install expect
+        run: sudo apt-get -y install expect
 
       - name: Generate PAC
         run: |
@@ -27,7 +27,7 @@ jobs:
 
       - name: Deploy
         run: tools/upload-pac.sh
-        if: github.ref == 'refs/heads/master' && env.FTP_PASS != null
+        if: "github.ref == 'refs/heads/master' && env.FTP_PASS != null"
         env:
           FTP_PASS: ${{ secrets.FTP_PASS }}
           FTP_HOST: ${{ secrets.FTP_HOST }}
