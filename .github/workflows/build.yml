@@ -16,6 +16,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Install expect
+        run: sudo apt install expect
+
       - name: Generate PAC
         run: |
           tools/get-raw-list.sh
