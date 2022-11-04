@@ -1,5 +1,6 @@
 #!/usr/bin/env expect
 
+set timeout 300
 spawn sftp -o StrictHostKeyChecking=no $env(FTP_USER)@$env(FTP_HOST)
 expect "Password: "
 send "$env(FTP_PASS)\r"
